@@ -1,613 +1,239 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Bikee Prajapati — Full-Stack &amp; AI/ML Engineer</title>
-<meta name="description" content="Portfolio of Bikee Prajapati — full-stack developer, AI/ML engineer, and DevOps practitioner based in Kathmandu, Nepal." />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg: #15141b;
-    --surface: #1d1c26;
-    --surface-2: #24222f;
-    --line: #322f3e;
-    --text: #ece8e1;
-    --text-muted: #9c96ac;
-    --accent: #e8a33d;
-    --accent-dim: #7a5d2c;
-    --good: #7fb88a;
-    --radius: 10px;
-    --maxw: 1080px;
-  }
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    margin:0;
-    background:var(--bg);
-    color:var(--text);
-    font-family:'IBM Plex Sans', system-ui, sans-serif;
-    line-height:1.55;
-    -webkit-font-smoothing:antialiased;
-  }
-  h1,h2,h3{
-    font-family:'Space Grotesk', system-ui, sans-serif;
-    font-weight:600;
-    line-height:1.1;
-    margin:0;
-  }
-  .mono{font-family:'IBM Plex Mono', monospace;}
-  a{color:inherit;}
-  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px;}
-  ::selection{background:var(--accent); color:#15141b;}
-  :focus-visible{outline:2px solid var(--accent); outline-offset:3px;}
-
-  @media (prefers-reduced-motion: reduce){
-    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
-    .reveal{opacity:1 !important; transform:none !important;}
-  }
-
-  /* ANIMATION LAYER */
-  .reveal{
-    opacity:0;
-    transform:translateY(28px);
-    transition:opacity 0.7s cubic-bezier(.16,.8,.24,1), transform 0.7s cubic-bezier(.16,.8,.24,1);
-  }
-  .reveal.in{opacity:1; transform:translateY(0);}
-  .reveal-stagger > *{
-    opacity:0; transform:translateY(22px);
-    transition:opacity 0.6s cubic-bezier(.16,.8,.24,1), transform 0.6s cubic-bezier(.16,.8,.24,1);
-  }
-  .reveal-stagger.in > *{opacity:1; transform:translateY(0);}
-  .reveal-stagger.in > *:nth-child(1){transition-delay:0.02s;}
-  .reveal-stagger.in > *:nth-child(2){transition-delay:0.10s;}
-  .reveal-stagger.in > *:nth-child(3){transition-delay:0.18s;}
-  .reveal-stagger.in > *:nth-child(4){transition-delay:0.26s;}
-  .reveal-stagger.in > *:nth-child(5){transition-delay:0.34s;}
-
-  @keyframes rise-in{
-    from{opacity:0; transform:translateY(20px);}
-    to{opacity:1; transform:translateY(0);}
-  }
-  .hero-anim > *{
-    opacity:0;
-    animation:rise-in 0.8s cubic-bezier(.16,.8,.24,1) forwards;
-  }
-  .hero-anim > *:nth-child(1){animation-delay:0.05s;}
-  .hero-anim > *:nth-child(2){animation-delay:0.16s;}
-  .hero-anim > *:nth-child(3){animation-delay:0.27s;}
-  .hero-anim > *:nth-child(4){animation-delay:0.38s;}
-  .hero-anim > *:nth-child(5){animation-delay:0.5s;}
-
-  body{position:relative;}
-  .glow-cursor{
-    position:fixed; top:0; left:0; width:520px; height:520px;
-    pointer-events:none; z-index:0; border-radius:50%;
-    background:radial-gradient(circle, rgba(232,163,61,0.10), transparent 70%);
-    transform:translate(-50%,-50%);
-    transition:opacity 0.3s ease;
-    opacity:0;
-  }
-  @media (hover:hover) and (pointer:fine){ .glow-cursor{opacity:1;} }
-
-  .navlinks a{position:relative; padding-bottom:3px;}
-  .navlinks a::after{
-    content:''; position:absolute; left:0; bottom:0; width:0; height:1px;
-    background:var(--accent); transition:width 0.25s ease;
-  }
-  .navlinks a:hover::after{width:100%;}
-
-  .project{
-    transform:translateY(0);
-    transition:border-color 0.2s ease, transform 0.3s cubic-bezier(.16,.8,.24,1), box-shadow 0.3s ease;
-  }
-  .project:hover{
-    transform:translateY(-4px);
-    box-shadow:0 14px 32px -18px rgba(0,0,0,0.55);
-  }
-  .chip{transition:border-color 0.2s ease, transform 0.2s ease, color 0.2s ease;}
-  .project:hover .chip{border-color:var(--accent-dim);}
-  .btn{will-change:transform;}
-  .brand{transition:letter-spacing 0.3s ease;}
-  .brand:hover{letter-spacing:0.01em;}
-
-  .pulse-ring{position:relative;}
-  .status-live{position:relative; overflow:hidden;}
-  .status-live::before{
-    content:''; position:absolute; inset:0;
-    background:linear-gradient(90deg, transparent, rgba(127,184,138,0.25), transparent);
-    transform:translateX(-100%);
-    animation:sheen 3.2s ease-in-out infinite;
-  }
-  @keyframes sheen{
-    0%,60%{transform:translateX(-100%);}
-    100%{transform:translateX(100%);}
-  }
-
-  /* NAV */
-  header{
-    position:sticky; top:0; z-index:50;
-    background:rgba(21,20,27,0.85);
-    backdrop-filter:blur(8px);
-    border-bottom:1px solid var(--line);
-  }
-  nav.wrap{
-    display:flex; align-items:center; justify-content:space-between;
-    padding-top:16px; padding-bottom:16px;
-  }
-  .brand{
-    font-family:'Space Grotesk', sans-serif;
-    font-weight:700; font-size:1.05rem; letter-spacing:-0.01em;
-    text-decoration:none;
-  }
-  .brand .dot{color:var(--accent);}
-  .navlinks{display:flex; gap:28px; list-style:none; margin:0; padding:0;}
-  .navlinks a{
-    text-decoration:none; color:var(--text-muted); font-size:0.92rem;
-    font-family:'IBM Plex Mono', monospace;
-    transition:color 0.15s ease;
-  }
-  .navlinks a:hover{color:var(--text);}
-  @media (max-width:640px){ .navlinks{display:none;} }
-
-  /* HERO */
-  .hero{
-    padding:96px 0 64px;
-    border-bottom:1px solid var(--line);
-    position:relative;
-  }
-  .eyebrow{
-    display:inline-flex; align-items:center; gap:8px;
-    font-family:'IBM Plex Mono', monospace;
-    font-size:0.8rem; letter-spacing:0.06em; text-transform:uppercase;
-    color:var(--good); margin-bottom:24px;
-  }
-  .pulse{
-    width:7px; height:7px; border-radius:50%; background:var(--good);
-    box-shadow:0 0 0 0 rgba(127,184,138,0.6);
-    animation:pulse 2s infinite;
-  }
-  @keyframes pulse{
-    0%{box-shadow:0 0 0 0 rgba(127,184,138,0.55);}
-    70%{box-shadow:0 0 0 8px rgba(127,184,138,0);}
-    100%{box-shadow:0 0 0 0 rgba(127,184,138,0);}
-  }
-  .hero h1{
-    font-size:clamp(2.2rem, 5.5vw, 3.6rem);
-    max-width:16ch;
-    margin-bottom:22px;
-  }
-  .hero h1 .accent{color:var(--accent);}
-  .hero p.lede{
-    max-width:56ch; color:var(--text-muted); font-size:1.08rem;
-    margin-bottom:36px;
-  }
-  .hero-actions{display:flex; gap:14px; flex-wrap:wrap;}
-  .btn{
-    display:inline-flex; align-items:center; gap:8px;
-    padding:12px 20px; border-radius:8px;
-    font-family:'IBM Plex Mono', monospace; font-size:0.9rem;
-    text-decoration:none; border:1px solid var(--line);
-    transition:transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
-  }
-  .btn:hover{transform:translateY(-1px);}
-  .btn-primary{background:var(--accent); color:#1a1408; border-color:var(--accent); font-weight:500;}
-  .btn-primary:hover{background:#f0ae4d;}
-  .btn-ghost{color:var(--text); background:transparent;}
-  .btn-ghost:hover{border-color:var(--accent); color:var(--accent);}
-
-  /* DEPLOY LOG TICKER — signature element */
-  .ticker-wrap{
-    margin-top:56px;
-    border:1px solid var(--line);
-    border-radius:var(--radius);
-    background:var(--surface);
-    overflow:hidden;
-  }
-  .ticker-head{
-    display:flex; align-items:center; gap:8px;
-    padding:10px 16px; border-bottom:1px solid var(--line);
-    font-family:'IBM Plex Mono', monospace; font-size:0.78rem;
-    color:var(--text-muted);
-  }
-  .ticker-head span.dot{width:8px; height:8px; border-radius:50%; display:inline-block;}
-  .d1{background:#e2685c;} .d2{background:#e8c95e;} .d3{background:var(--good);}
-  .ticker-viewport{overflow:hidden; white-space:nowrap; padding:14px 0;}
-  .ticker-track{
-    display:inline-block;
-    font-family:'IBM Plex Mono', monospace; font-size:0.86rem;
-    animation:scroll-left 34s linear infinite;
-    padding-left:100%;
-  }
-  .ticker-track span{margin-right:48px; color:var(--text-muted);}
-  .ticker-track span.ok{color:var(--good);}
-  @keyframes scroll-left{
-    from{transform:translateX(0);}
-    to{transform:translateX(-100%);}
-  }
-
-  section{padding:80px 0; border-bottom:1px solid var(--line);}
-  .section-head{margin-bottom:44px;}
-  .section-tag{
-    font-family:'IBM Plex Mono', monospace; font-size:0.8rem;
-    color:var(--accent); text-transform:uppercase; letter-spacing:0.06em;
-    display:block; margin-bottom:10px;
-  }
-  .section-head h2{font-size:clamp(1.6rem, 3vw, 2.1rem);}
-
-  /* ABOUT / STACK */
-  .about-grid{display:grid; grid-template-columns:1.1fr 1fr; gap:56px;}
-  @media (max-width:800px){ .about-grid{grid-template-columns:1fr;} }
-  .about-grid p{color:var(--text-muted); margin:0 0 16px;}
-  .stack-group{margin-bottom:22px;}
-  .stack-group h3{
-    font-family:'IBM Plex Mono', monospace; font-size:0.78rem;
-    color:var(--text-muted); text-transform:uppercase; letter-spacing:0.06em;
-    margin-bottom:10px; font-weight:500;
-  }
-  .chips{display:flex; flex-wrap:wrap; gap:8px;}
-  .chip{
-    font-family:'IBM Plex Mono', monospace; font-size:0.82rem;
-    padding:6px 12px; border:1px solid var(--line); border-radius:6px;
-    background:var(--surface); color:var(--text);
-  }
-
-  /* PROJECTS */
-  .project{
-    display:grid; grid-template-columns:1fr; gap:18px;
-    padding:32px; margin-bottom:24px;
-    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
-    transition:border-color 0.2s ease;
-  }
-  .project:hover{border-color:var(--accent-dim);}
-  .project-top{
-    display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap;
-  }
-  .project-title{font-size:1.35rem; margin-bottom:6px;}
-  .status-tag{
-    font-family:'IBM Plex Mono', monospace; font-size:0.72rem;
-    padding:4px 10px; border-radius:5px; text-transform:uppercase; letter-spacing:0.05em;
-    white-space:nowrap; height:fit-content;
-  }
-  .status-live{background:rgba(127,184,138,0.14); color:var(--good); border:1px solid rgba(127,184,138,0.3);}
-  .status-shipped{background:rgba(232,163,61,0.14); color:var(--accent); border:1px solid rgba(232,163,61,0.3);}
-  .project-desc{color:var(--text-muted); max-width:70ch;}
-  .project-desc strong{color:var(--text); font-weight:500;}
-  .project-stack{display:flex; flex-wrap:wrap; gap:8px; margin-top:4px;}
-  .project-links{display:flex; gap:14px; margin-top:6px; flex-wrap:wrap;}
-  .project-links a{
-    font-family:'IBM Plex Mono', monospace; font-size:0.85rem;
-    text-decoration:none; color:var(--accent); border-bottom:1px solid var(--accent-dim);
-    padding-bottom:1px;
-  }
-  .project-links a:hover{border-color:var(--accent);}
-  .project-links .disabled{
-    color:var(--text-muted); border-bottom:1px dashed var(--line); cursor:default;
-  }
-
-  /* RESUME */
-  .resume-card{
-    display:flex; align-items:center; justify-content:space-between; gap:24px;
-    padding:36px; background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
-    flex-wrap:wrap;
-  }
-  .resume-card h3{font-size:1.2rem; margin-bottom:6px;}
-  .resume-card p{color:var(--text-muted); margin:0; max-width:44ch;}
-
-  /* CONTACT / FOOTER */
-  footer{padding:56px 0 40px; border-bottom:none;}
-  .contact-row{
-    display:flex; justify-content:space-between; align-items:flex-end; gap:24px; flex-wrap:wrap;
-  }
-  footer h2{font-size:clamp(1.6rem,3.5vw,2.3rem); max-width:14ch; margin-bottom:14px;}
-  .contact-links{display:flex; gap:20px; flex-wrap:wrap;}
-  .contact-links a{
-    font-family:'IBM Plex Mono', monospace; font-size:0.9rem;
-    text-decoration:none; color:var(--text-muted); border-bottom:1px solid transparent;
-  }
-  .contact-links a:hover{color:var(--accent); border-color:var(--accent);}
-  .foot-note{
-    margin-top:48px; padding-top:20px; border-top:1px solid var(--line);
-    font-family:'IBM Plex Mono', monospace; font-size:0.78rem; color:var(--text-muted);
-    display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bikee Prajapati — Full-Stack &amp; AI/ML Engineer</title>
+  <meta name="description" content="Portfolio of Bikee Prajapati — full-stack developer, AI/ML engineer, and DevOps practitioner based in Kathmandu, Nepal." />
+  <meta name="theme-color" content="#0c0c10" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-<div class="glow-cursor" id="glow"></div>
 
-<header>
-  <nav class="wrap">
-    <a href="#home" class="brand">bikee<span class="dot">.</span>dev</a>
-    <ul class="navlinks">
-      <li><a href="#about">about</a></li>
-      <li><a href="#work">work</a></li>
-      <li><a href="#resume">resume</a></li>
-      <li><a href="#contact">contact</a></li>
-    </ul>
-  </nav>
-</header>
+  <div class="bg-grid" aria-hidden="true"></div>
 
-<main>
-  <section class="hero" id="home">
-    <div class="wrap hero-anim">
-      <span class="eyebrow"><span class="pulse"></span>open to ai/ml &amp; full-stack roles</span>
-      <h1>I build software, then I make sure it <span class="accent">stays running</span> in production.</h1>
-      <p class="lede">
-        Bikee Prajapati — full-stack developer and AI/ML engineer in Kathmandu, Nepal.
-        I ship end-to-end products: from RAG pipelines and course platforms to the Docker
-        images, CI/CD, and cloud infra that keep them live.
-      </p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="#work">See the work →</a>
-        <a class="btn btn-ghost" href="#resume">Download résumé</a>
-        <a class="btn btn-ghost" href="https://github.com/bikeeprajapati" target="_blank" rel="noopener">GitHub ↗</a>
-      </div>
+  <header>
+    <nav class="wrap">
+      <a href="#home" class="brand">bikee<span>.</span>dev</a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="navlinks" id="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-      <div class="ticker-wrap" aria-hidden="true">
-        <div class="ticker-head">
-          <span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span>
-          deploy_log.sh — recent
-        </div>
-        <div class="ticker-viewport">
-          <div class="ticker-track">
-            <span class="ok">✓ dockerized lms-backend</span>
-            <span class="ok">✓ deployed to gcp cloud run</span>
-            <span>⟳ rotated exposed credentials after ci leak</span>
-            <span class="ok">✓ fixed stripe checkout hang (fire-and-forget email)</span>
-            <span class="ok">✓ resolved cross-site cookie failure — sameSite:none</span>
-            <span class="ok">✓ shipped rag pipeline: pymupdf → faiss → mistral</span>
-            <span class="ok">✓ dockerized docmind, pushed to docker hub</span>
-            <span class="ok">✓ github actions keep-alive cron — render free tier</span>
-            <span class="ok">✓ dockerized lms-backend</span>
-            <span class="ok">✓ deployed to gcp cloud run</span>
-            <span>⟳ rotated exposed credentials after ci leak</span>
-            <span class="ok">✓ fixed stripe checkout hang (fire-and-forget email)</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="about">
-    <div class="wrap about-grid reveal">
-      <div>
-        <span class="section-tag">// about</span>
-        <h2 style="margin-bottom:20px;">Full-stack, with a DevOps habit and an AI/ML focus.</h2>
-        <p>
-          I'm an Information Management graduate (Shanker Dev Campus, Tribhuvan University),
-          currently a mentee in the Dev Weekends Fellowship and actively applying for AI/ML
-          engineering roles. I like taking projects past the "it works on my machine" stage —
-          containerizing them, wiring up CI/CD, and fixing whatever breaks once real traffic hits.
+  <main>
+    <section class="hero" id="home">
+      <div class="wrap">
+        <p class="eyebrow">Full-Stack · AI/ML · DevOps</p>
+        <h1>I build products and ship them to <em>production</em>.</h1>
+        <p class="lede">
+          Bikee Prajapati — developer based in Kathmandu, Nepal. I work across the
+          full stack, from RAG pipelines and course platforms to Docker, CI/CD, and cloud deployment.
         </p>
-        <p>
-          Recent work spans a full-stack LMS with video DRM and payments, a RAG-based PDF
-          chatbot built without framework abstractions to actually understand the fundamentals,
-          and a multi-vendor e-commerce platform — plus an AI internship and a stint building a
-          custom Drupal module suite in production.
-        </p>
-      </div>
-      <div>
-        <div class="stack-group">
-          <h3>Frontend</h3>
-          <div class="chips">
-            <span class="chip">Next.js</span><span class="chip">React</span>
-            <span class="chip">Redux Toolkit</span><span class="chip">MUI</span>
-          </div>
-        </div>
-        <div class="stack-group">
-          <h3>Backend</h3>
-          <div class="chips">
-            <span class="chip">Node.js / Express</span><span class="chip">TypeScript</span>
-            <span class="chip">FastAPI</span><span class="chip">MongoDB</span>
-            <span class="chip">Redis</span><span class="chip">Socket.IO</span>
-          </div>
-        </div>
-        <div class="stack-group">
-          <h3>AI / ML</h3>
-          <div class="chips">
-            <span class="chip">FAISS</span><span class="chip">HuggingFace</span>
-            <span class="chip">Mistral LLM</span><span class="chip">Scikit-learn</span>
-          </div>
-        </div>
-        <div class="stack-group">
-          <h3>DevOps</h3>
-          <div class="chips">
-            <span class="chip">Docker</span><span class="chip">GitHub Actions</span>
-            <span class="chip">GCP Cloud Run</span><span class="chip">Vercel / Render</span>
-          </div>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#work">View projects</a>
+          <a class="btn btn-ghost" href="resume.pdf" download="Bikee-Prajapati-Resume.pdf">Download resume</a>
+          <a class="btn btn-ghost" href="https://github.com/bikeeprajapati" target="_blank" rel="noopener">GitHub</a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="work">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <span class="section-tag">// selected work</span>
-        <h2>Projects I've taken from idea to production.</h2>
+    <section id="about">
+      <div class="wrap about-grid reveal">
+        <div class="about-text">
+          <p class="section-label">About</p>
+          <h2 class="section-title">Engineering with a production mindset.</h2>
+          <p>
+            Information Management graduate from Shanker Dev Campus (Tribhuvan University),
+            currently in the Dev Weekends Fellowship and applying for AI/ML engineering roles.
+          </p>
+          <p>
+            I take projects past the prototype stage — containerizing backends, setting up CI/CD,
+            and fixing what breaks when real users show up.
+          </p>
+        </div>
+        <div class="skills-list">
+          <div class="skill-group">
+            <h3>Frontend</h3>
+            <div class="chips">
+              <span class="chip">Next.js</span><span class="chip">React</span>
+              <span class="chip">Redux Toolkit</span><span class="chip">MUI</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h3>Backend</h3>
+            <div class="chips">
+              <span class="chip">Node.js</span><span class="chip">Express</span>
+              <span class="chip">TypeScript</span><span class="chip">FastAPI</span>
+              <span class="chip">MongoDB</span><span class="chip">Redis</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h3>AI / ML</h3>
+            <div class="chips">
+              <span class="chip">FAISS</span><span class="chip">HuggingFace</span>
+              <span class="chip">Mistral</span><span class="chip">Scikit-learn</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h3>DevOps</h3>
+            <div class="chips">
+              <span class="chip">Docker</span><span class="chip">GitHub Actions</span>
+              <span class="chip">GCP Cloud Run</span><span class="chip">AWS EC2</span>
+              <span class="chip">Render</span>
+            </div>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <article class="project reveal">
-        <div class="project-top">
+    <section id="work">
+      <div class="wrap">
+        <p class="section-label reveal">Work</p>
+        <h2 class="section-title reveal">Selected projects</h2>
+
+        <div class="project-list">
+          <article class="project reveal">
+            <div class="project-header">
+              <h3 class="project-title">Dev Weekends LMS</h3>
+              <span class="badge badge-live">Live</span>
+            </div>
+            <p class="project-desc">
+              Full-stack learning platform with course management, DRM-protected video,
+              Stripe payments, and an admin dashboard — deployed to GCP Cloud Run with CI/CD.
+            </p>
+            <ul class="project-highlights">
+              <li>Containerized backend with GitHub Actions pipeline</li>
+              <li>Fixed Stripe checkout hang and cross-site cookie issues in production</li>
+            </ul>
+            <div class="project-footer">
+              <div class="chips">
+                <span class="chip">Next.js</span><span class="chip">Express</span>
+                <span class="chip">MongoDB</span><span class="chip">Stripe</span>
+                <span class="chip">Docker</span><span class="chip">GCP</span>
+              </div>
+              <div class="project-links">
+                <a href="https://lms-server-drkkwnviwa-el.a.run.app" target="_blank" rel="noopener">Live demo →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project reveal">
+            <div class="project-header">
+              <h3 class="project-title">DocMind — RAG PDF Chatbot</h3>
+              <span class="badge badge-live">Live</span>
+            </div>
+            <p class="project-desc">
+              Retrieval-augmented chatbot for querying PDFs, built without LangChain to
+              understand the pipeline end-to-end — from extraction to generation.
+            </p>
+            <ul class="project-highlights">
+              <li>PyMuPDF → MiniLM embeddings → FAISS → Mistral LLM via FastAPI</li>
+              <li>Deployed on HuggingFace Spaces, Docker image on Docker Hub</li>
+            </ul>
+            <div class="project-footer">
+              <div class="chips">
+                <span class="chip">Python</span><span class="chip">FAISS</span>
+                <span class="chip">FastAPI</span><span class="chip">Docker</span>
+              </div>
+              <div class="project-links">
+                <a href="https://huggingface.co/spaces/Vickypy/docmind-pdf-chatbot" target="_blank" rel="noopener">Live demo →</a>
+                <a href="https://hub.docker.com/r/bikeeprajapati1/docmind" target="_blank" rel="noopener">Docker Hub →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project reveal">
+            <div class="project-header">
+              <h3 class="project-title">ShopO — Multi-Vendor Marketplace</h3>
+              <span class="badge badge-shipped">Shipped</span>
+            </div>
+            <p class="project-desc">
+              MERN e-commerce platform with multi-vendor support, real-time chat via Socket.IO,
+              and separate buyer/vendor flows — deployed on Render.
+            </p>
+            <ul class="project-highlights">
+              <li>Resolved Mongoose 9 breaking changes and MUI v4→v5 migration</li>
+              <li>Fixed CORS and async race conditions across vendor/buyer flows</li>
+            </ul>
+            <div class="project-footer">
+              <div class="chips">
+                <span class="chip">MongoDB</span><span class="chip">Express</span>
+                <span class="chip">React</span><span class="chip">Socket.IO</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/bikeeprajapati/multivendor-mern" target="_blank" rel="noopener">Source →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project reveal">
+            <div class="project-header">
+              <h3 class="project-title">Insurance Premium Predictor</h3>
+              <span class="badge badge-live">Live</span>
+            </div>
+            <p class="project-desc">
+              ML regression API that predicts insurance premiums from user inputs —
+              containerized and deployed on AWS EC2.
+            </p>
+            <ul class="project-highlights">
+              <li>FastAPI + Scikit-learn, Dockerized with manual EC2 port mapping</li>
+            </ul>
+            <div class="project-footer">
+              <div class="chips">
+                <span class="chip">Python</span><span class="chip">FastAPI</span>
+                <span class="chip">Scikit-learn</span><span class="chip">AWS EC2</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="resume">
+      <div class="wrap reveal">
+        <p class="section-label">Resume</p>
+        <h2 class="section-title">Download my CV</h2>
+        <div class="resume-box">
           <div>
-            <h3 class="project-title">Dev Weekends LMS</h3>
+            <h3>Bikee Prajapati — Resume</h3>
+            <p>One-page PDF with education, experience, and projects.</p>
           </div>
-          <span class="status-tag status-live">live</span>
+          <a class="btn btn-primary" href="resume.pdf" download="Bikee-Prajapati-Resume.pdf">Download PDF</a>
         </div>
-        <p class="project-desc">
-          A full-stack learning-management platform built as a graded Dev Weekends deliverable —
-          <strong>course CRUD, DRM-protected video, Stripe payments, and an admin dashboard</strong>,
-          all covered against the full rubric. I took it further with a DevOps pass: containerized
-          the backend, built a GitHub Actions CI/CD pipeline, and deployed it to GCP Cloud Run.
-          Along the way I fixed a Stripe checkout hang, cross-site cookie failures, and a logout
-          race condition caused by stale RTK Query cache state.
-        </p>
-        <div class="project-stack chips">
-          <span class="chip">Next.js 14</span><span class="chip">Express / TS</span>
-          <span class="chip">MongoDB</span><span class="chip">Stripe</span>
-          <span class="chip">VdoCipher</span><span class="chip">Docker</span>
-          <span class="chip">GCP Cloud Run</span>
-        </div>
-        <div class="project-links">
-          <a href="https://lms-server-drkkwnviwa-el.a.run.app" target="_blank" rel="noopener">Live demo ↗</a>
-          <span class="disabled" title="Repo is private after a credential rotation">Source (private repo)</span>
-        </div>
-      </article>
+      </div>
+    </section>
 
-      <article class="project reveal">
-        <div class="project-top">
+    <footer id="contact">
+      <div class="wrap">
+        <div class="contact-grid reveal">
           <div>
-            <h3 class="project-title">DocMind — RAG PDF Chatbot</h3>
+            <p class="section-label">Contact</p>
+            <h2 class="section-title">Let's connect.</h2>
           </div>
-          <span class="status-tag status-live">live</span>
-        </div>
-        <p class="project-desc">
-          A retrieval-augmented chatbot for querying PDFs, built from scratch as a deep-learning
-          exercise — <strong>deliberately avoiding LangChain abstractions</strong> to actually
-          understand how retrieval pipelines work. Text is extracted with PyMuPDF, embedded with
-          a HuggingFace sentence-transformer (MiniLM), indexed in FAISS, and served through
-          FastAPI with a Mistral LLM for generation. Dockerized and deployed to HuggingFace Spaces.
-        </p>
-        <div class="project-stack chips">
-          <span class="chip">PyMuPDF</span><span class="chip">FAISS</span>
-          <span class="chip">HuggingFace Embeddings</span><span class="chip">FastAPI</span>
-          <span class="chip">Mistral LLM</span><span class="chip">Docker</span>
-        </div>
-        <div class="project-links">
-          <a href="https://huggingface.co/spaces/Vickypy/docmind-pdf-chatbot" target="_blank" rel="noopener">Live demo ↗</a>
-          <a href="https://hub.docker.com/r/bikeeprajapati1/docmind" target="_blank" rel="noopener">Docker Hub ↗</a>
-        </div>
-      </article>
-
-      <article class="project reveal">
-        <div class="project-top">
-          <div>
-            <h3 class="project-title">ShopO — Multi-Vendor MERN Marketplace</h3>
+          <div class="contact-links">
+            <a href="mailto:workwithbikee@gmail.com">Email</a>
+            <a href="https://github.com/bikeeprajapati" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://www.linkedin.com/in/bikee-prajapati9898/" target="_blank" rel="noopener">LinkedIn</a>
           </div>
-          <span class="status-tag status-shipped">shipped</span>
         </div>
-        <p class="project-desc">
-          A multi-vendor e-commerce platform built as a Dev Weekends deliverable on the MERN
-          stack. Most of the real engineering was in the debugging: <strong>Mongoose 9 breaking
-          changes, a MUI v4→v5 migration, async race conditions, and CORS/Socket.IO
-          configuration</strong> across separate vendor and buyer flows, deployed on Render.
-        </p>
-        <div class="project-stack chips">
-          <span class="chip">MongoDB</span><span class="chip">Express</span>
-          <span class="chip">React</span><span class="chip">Node.js</span>
-          <span class="chip">Socket.IO</span><span class="chip">Render</span>
-        </div>
-        <div class="project-links">
-          <a href="https://github.com/bikeeprajapati/multivendor-mern" target="_blank" rel="noopener">Source ↗</a>
-          <!-- TODO(bikee): add the live Render URL here once confirmed -->
-          <span class="disabled" title="Add your live Render URL here">Live demo (add link)</span>
-        </div>
-      </article>
-
-      <article class="project reveal">
-        <div class="project-top">
-          <div>
-            <h3 class="project-title">Insurance Premium Predictor</h3>
-          </div>
-          <span class="status-tag status-live">live</span>
-        </div>
-        <p class="project-desc">
-          A machine learning API that predicts insurance premiums from user inputs, using
-          regression models trained with Scikit-learn. Containerized with Docker, pushed to
-          Docker Hub, and deployed live on an <strong>AWS EC2 instance</strong> with manual
-          port mapping and container networking.
-        </p>
-        <div class="project-stack chips">
-          <span class="chip">Python</span><span class="chip">FastAPI</span>
-          <span class="chip">Scikit-learn</span><span class="chip">Docker</span>
-          <span class="chip">AWS EC2</span>
-        </div>
-        <div class="project-links">
-          <!-- TODO(bikee): add the live EC2 URL and/or repo link here -->
-          <span class="disabled" title="Add your live EC2 URL here">Live demo (add link)</span>
-          <span class="disabled" title="Add your repo link here">Source (add link)</span>
-        </div>
-      </article>
-
-    </div>
-  </section>
-
-  <section id="resume">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="section-tag">// résumé</span>
-        <h2>Grab the one-pager.</h2>
-      </div>
-      <div class="resume-card reveal">
-        <div>
-          <h3>Bikee Prajapati — Résumé (PDF)</h3>
-          <p>AI/ML-focused CV — background, projects, and internships in one page.</p>
-        </div>
-        <!-- TODO(bikee): replace resume.pdf with your actual file, same folder as index.html -->
-        <a class="btn btn-primary" href="resume.pdf" download>Download PDF ↓</a>
-      </div>
-    </div>
-  </section>
-
-  <footer id="contact">
-    <div class="wrap">
-      <div class="contact-row reveal">
-        <div>
-          <span class="section-tag">// contact</span>
-          <h2>Building something? Let's talk.</h2>
-        </div>
-        <div class="contact-links">
-          <a href="mailto:workwithbikee@gmail.com">workwithbikee@gmail.com</a>
-          <a href="https://github.com/bikeeprajapati" target="_blank" rel="noopener">GitHub ↗</a>
-          <a href="https://www.linkedin.com/in/bikee-prajapati9898/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <div class="foot-note">
+          <span>Kathmandu, Nepal</span>
+          <span>© <span id="year"></span> Bikee Prajapati</span>
         </div>
       </div>
-      <div class="foot-note wrap" style="padding:0;">
-        <span>Kathmandu, Nepal</span>
-        <span>© <span id="year"></span> Bikee Prajapati</span>
-      </div>
-    </div>
-  </footer>
-</main>
+    </footer>
+  </main>
 
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-
-  // Scroll-triggered reveals
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const revealEls = document.querySelectorAll('.reveal, .reveal-stagger');
-  if (reduceMotion) {
-    revealEls.forEach(el => el.classList.add('in'));
-  } else if ('IntersectionObserver' in window) {
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in');
-          io.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
-    revealEls.forEach(el => io.observe(el));
-  } else {
-    revealEls.forEach(el => el.classList.add('in'));
-  }
-
-  // Ambient cursor glow (desktop only, respects reduced motion)
-  if (!reduceMotion && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-    const glow = document.getElementById('glow');
-    let raf = null;
-    window.addEventListener('mousemove', (e) => {
-      if (raf) return;
-      raf = requestAnimationFrame(() => {
-        glow.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%, -50%)`;
-        raf = null;
-      });
-    });
-  }
-</script>
-
+  <script src="assets/js/main.js"></script>
 </body>
 </html>

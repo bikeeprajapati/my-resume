@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bikee Prajapati — Résumé</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --text: #1a1a22;
+      --muted: #5a5668;
+      --accent: #007a62;
+      --line: #e4e2ea;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'IBM Plex Sans', system-ui, sans-serif;
+      color: var(--text);
+      background: #fff;
+      line-height: 1.5;
+      font-size: 10.5pt;
+    }
+
+    .page {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 48px 56px;
+    }
+
+    header {
+      border-bottom: 2px solid var(--text);
+      padding-bottom: 20px;
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 26pt;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+
+    .tagline {
+      font-size: 12pt;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 8.5pt;
+      color: var(--muted);
+    }
+
+    .contact a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    section {
+      margin-bottom: 22px;
+    }
+
+    h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 10pt;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 4px;
+      margin-bottom: 12px;
+    }
+
+    .summary {
+      color: var(--muted);
+      font-size: 10pt;
+      line-height: 1.6;
+    }
+
+    .entry {
+      margin-bottom: 14px;
+    }
+
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-bottom: 2px;
+    }
+
+    .entry-title {
+      font-weight: 600;
+      font-size: 10.5pt;
+    }
+
+    .entry-date {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 8.5pt;
+      color: var(--muted);
+    }
+
+    .entry-sub {
+      font-size: 9.5pt;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    ul {
+      padding-left: 16px;
+      color: var(--muted);
+      font-size: 9.5pt;
+    }
+
+    ul li {
+      margin-bottom: 3px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 24px;
+      font-size: 9.5pt;
+    }
+
+    .skill-row strong {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 8pt;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text);
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .skill-row span {
+      color: var(--muted);
+    }
+
+    .print-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+
+    .print-btn:hover {
+      opacity: 0.9;
+    }
+
+    @media print {
+      .print-btn { display: none; }
+      .page { padding: 0; max-width: 100%; }
+      body { font-size: 10pt; }
+      @page { margin: 0.6in; }
+    }
+  </style>
+</head>
+<body>
+
+  <button class="print-btn" onclick="window.print()">Save as PDF ↓</button>
+
+  <div class="page">
+    <header>
+      <h1>Bikee Prajapati</h1>
+      <p class="tagline">Full-Stack Developer · AI/ML Engineer · DevOps</p>
+      <div class="contact">
+        <span>Kathmandu, Nepal</span>
+        <a href="mailto:workwithbikee@gmail.com">workwithbikee@gmail.com</a>
+        <a href="https://github.com/bikeeprajapati">github.com/bikeeprajapati</a>
+        <a href="https://linkedin.com/in/bikee-prajapati9898">linkedin.com/in/bikee-prajapati9898</a>
+        <a href="https://bikeeprajapati.com.np">bikeeprajapati.com.np</a>
+      </div>
+    </header>
+
+    <section>
+      <h2>Summary</h2>
+      <p class="summary">
+        Full-stack developer and AI/ML engineer who ships end-to-end products — from RAG pipelines
+        and course platforms to Docker images, CI/CD, and cloud deployments. Currently a Dev Weekends
+        Fellowship mentee, actively seeking AI/ML engineering roles. Strong in taking projects from
+        prototype to production.
+      </p>
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Bachelor in Information Management (BIM)</span>
+          <span class="entry-date">2021 – 2025</span>
+        </div>
+        <div class="entry-sub">Shanker Dev Campus, Tribhuvan University — Kathmandu, Nepal</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Experience</h2>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Dev Weekends Fellowship — Mentee</span>
+          <span class="entry-date">2025 – Present</span>
+        </div>
+        <div class="entry-sub">Remote · Full-stack &amp; DevOps track</div>
+        <ul>
+          <li>Built and deployed a full-stack LMS with Stripe payments, DRM video, and GCP Cloud Run CI/CD</li>
+          <li>Shipped multi-vendor MERN marketplace with Socket.IO realtime and Render deployment</li>
+          <li>Containerized backends, configured GitHub Actions pipelines, and resolved production bugs</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">AI Intern</span>
+          <span class="entry-date">2024</span>
+        </div>
+        <div class="entry-sub">Industry internship — machine learning &amp; data workflows</div>
+        <ul>
+          <li>Worked on ML model training, data preprocessing, and deployment workflows</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Drupal Developer</span>
+          <span class="entry-date">2023 – 2024</span>
+        </div>
+        <div class="entry-sub">Custom Drupal module suite in production</div>
+        <ul>
+          <li>Built and maintained custom Drupal modules for a live production environment</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Selected Projects</h2>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Dev Weekends LMS</span>
+          <span class="entry-date">Live</span>
+        </div>
+        <div class="entry-sub">Next.js 14 · Express/TS · MongoDB · Stripe · Docker · GCP Cloud Run</div>
+        <ul>
+          <li>Full LMS with course CRUD, DRM-protected video (VdoCipher), Stripe checkout, admin dashboard</li>
+          <li>Fixed Stripe hang, cross-site cookie failures, and RTK Query cache race conditions</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">DocMind — RAG PDF Chatbot</span>
+          <span class="entry-date">Live</span>
+        </div>
+        <div class="entry-sub">PyMuPDF · FAISS · HuggingFace · FastAPI · Mistral · Docker</div>
+        <ul>
+          <li>Custom RAG pipeline without LangChain — PyMuPDF → MiniLM embeddings → FAISS → Mistral LLM</li>
+          <li>Deployed on HuggingFace Spaces; Docker image on Docker Hub</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">ShopO — Multi-Vendor MERN Marketplace</span>
+          <span class="entry-date">Shipped</span>
+        </div>
+        <div class="entry-sub">MongoDB · Express · React · Node.js · Socket.IO · Render</div>
+        <ul>
+          <li>Multi-vendor e-commerce with realtime chat; resolved Mongoose 9, MUI migration, and CORS issues</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Insurance Premium Predictor</span>
+          <span class="entry-date">Live</span>
+        </div>
+        <div class="entry-sub">Python · FastAPI · Scikit-learn · Docker · AWS EC2</div>
+        <ul>
+          <li>ML regression API for premium prediction; containerized and deployed on AWS EC2</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-row">
+          <strong>Frontend</strong>
+          <span>Next.js, React, Redux Toolkit, MUI, TypeScript</span>
+        </div>
+        <div class="skill-row">
+          <strong>Backend</strong>
+          <span>Node.js, Express, FastAPI, Python, MongoDB, Redis</span>
+        </div>
+        <div class="skill-row">
+          <strong>AI / ML</strong>
+          <span>FAISS, HuggingFace, Mistral LLM, Scikit-learn, RAG pipelines</span>
+        </div>
+        <div class="skill-row">
+          <strong>DevOps</strong>
+          <span>Docker, GitHub Actions, GCP Cloud Run, AWS EC2, Vercel, Render</span>
+        </div>
+      </div>
+    </section>
+  </div>
+
+</body>
+</html>
