@@ -1,0 +1,18 @@
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Editor/IDE
+.vscode/
+.idea/
+*.swp
+
+# Logs
+*.log
+
+# Env files (if any tooling gets added later)
+.env
+.env.local
+
+# Node (if any tooling gets added later)
+node_modules/
