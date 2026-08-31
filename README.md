@@ -2,37 +2,33 @@
 
 Personal developer portfolio, live at **[bikeeprajapati.com.np](https://bikeeprajapati.com.np)**.
 
-Built as a single self-contained static page — no build step, no framework,
-no dependencies. Just `index.html` with embedded CSS and JS, deployed via
-GitHub Pages on a custom domain.
-
-## What's here
-
-- **Hero** — quick intro and positioning
-- **About / tech stack** — frontend, backend, AI/ML, and DevOps skills
-- **Projects** — case studies for top projects, each with a description,
-  tech stack, and links to source/live demo where available
-- **Résumé** — downloadable PDF
-- **Contact** — email, GitHub, LinkedIn
+A static site with markup, styles, and scripts kept separate — no build step,
+no framework, no dependencies. Deployed via GitHub Pages on a custom domain.
 
 ## Structure
 
 ```
 .
-├── index.html    # the entire site: markup, styles, and scripts
-├── resume.pdf    # downloadable résumé, linked from the Résumé section
-├── CNAME         # custom domain config for GitHub Pages
+├── index.html      # markup only
+├── css/
+│   └── style.css   # all styles, organized by section
+├── js/
+│   └── main.js     # scroll reveals, cursor glow, footer year
+├── resume.pdf       # downloadable résumé, linked from the Résumé section
+├── CNAME            # custom domain config for GitHub Pages
 └── README.md
 ```
 
 ## Running locally
 
-No build tools needed — just open `index.html` in a browser, or serve it
-with any static server, e.g.:
+No build tools needed. Serve the folder with any static server, for example:
 
 ```bash
 python3 -m http.server 8000
 ```
+
+Opening `index.html` directly in a browser also works, since there's no
+bundler or module system involved.
 
 ## Deployment
 
@@ -41,7 +37,21 @@ Hosted on **GitHub Pages**, served at the custom domain configured in
 
 ## Updating content
 
-Project case studies, tech stack, and links all live directly in
-`index.html` inside the `#work` section — update the relevant `<article
-class="project">` block to add, edit, or reorder projects. Swap
-`resume.pdf` to update the downloadable résumé.
+- **Projects, tech stack, links** — edit the relevant `<article
+  class="project">` block inside the `#work` section of `index.html`.
+- **Styling** — `css/style.css` is organized top to bottom: variables and
+  reset, typography, nav, hero, animations, sections (about, work, resume,
+  contact), and responsive breakpoints at the bottom of each component.
+- **Behavior** — `js/main.js` handles the footer year, scroll-triggered
+  reveal animations, and the ambient cursor glow. `js/chatbot.js` runs the
+  chat assistant (a scripted, keyword-matched FAQ bot — no API, no backend,
+  nothing leaves the browser). Everything respects `prefers-reduced-motion`.
+- **Résumé** — replace `resume.pdf` with an updated file of the same name.
+
+## Chat assistant
+
+The bottom-right chat widget answers common questions (projects, tech
+stack, résumé, contact) by matching keywords against a fixed list of
+Q&amp;A pairs in `js/chatbot.js` — it is not a live AI and makes no network
+calls. To add or edit answers, update the `FAQ` array at the top of that
+file; each entry is a list of trigger keywords and a reply string.
