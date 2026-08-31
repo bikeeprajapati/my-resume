@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Bikee Prajapati — Full-Stack &amp; AI/ML Engineer</title>
-<meta name="description" content="Portfolio of Bikee Prajapati — full-stack developer, AI/ML engineer, and DevOps practitioner based in Kathmandu, Nepal." />
+<title>Bikee Prajapati: Full-Stack &amp; AI/ML Engineer</title>
+<meta name="description" content="Portfolio of Bikee Prajapati, full-stack developer and AI/ML engineer based in Kathmandu, Nepal." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -114,17 +114,6 @@
   .brand:hover{letter-spacing:0.01em;}
 
   .pulse-ring{position:relative;}
-  .status-live{position:relative; overflow:hidden;}
-  .status-live::before{
-    content:''; position:absolute; inset:0;
-    background:linear-gradient(90deg, transparent, rgba(127,184,138,0.25), transparent);
-    transform:translateX(-100%);
-    animation:sheen 3.2s ease-in-out infinite;
-  }
-  @keyframes sheen{
-    0%,60%{transform:translateX(-100%);}
-    100%{transform:translateX(100%);}
-  }
 
   /* NAV */
   header{
@@ -198,7 +187,7 @@
   .btn-ghost{color:var(--text); background:transparent;}
   .btn-ghost:hover{border-color:var(--accent); color:var(--accent);}
 
-  /* DEPLOY LOG TICKER — signature element */
+  /* DEPLOY LOG TICKER (signature element) */
   .ticker-wrap{
     margin-top:56px;
     border:1px solid var(--line);
@@ -237,7 +226,7 @@
   }
   .section-head h2{font-size:clamp(1.6rem, 3vw, 2.1rem);}
 
-  /* ABOUT / STACK */
+  /* ABOUT AND STACK */
   .about-grid{display:grid; grid-template-columns:1.1fr 1fr; gap:56px;}
   @media (max-width:800px){ .about-grid{grid-template-columns:1fr;} }
   .about-grid p{color:var(--text-muted); margin:0 0 16px;}
@@ -296,7 +285,7 @@
   .resume-card h3{font-size:1.2rem; margin-bottom:6px;}
   .resume-card p{color:var(--text-muted); margin:0; max-width:44ch;}
 
-  /* CONTACT / FOOTER */
+  /* CONTACT AND FOOTER */
   footer{padding:56px 0 40px; border-bottom:none;}
   .contact-row{
     display:flex; justify-content:space-between; align-items:flex-end; gap:24px; flex-wrap:wrap;
@@ -334,11 +323,11 @@
   <section class="hero" id="home">
     <div class="wrap hero-anim">
       <span class="eyebrow"><span class="pulse"></span>open to ai/ml &amp; full-stack roles</span>
-      <h1>I build software, then I make sure it <span class="accent">stays running</span> in production.</h1>
+      <h1>Bikee Prajapati. Full-stack developer, <span class="accent">AI/ML engineer</span>.</h1>
       <p class="lede">
-        Bikee Prajapati — full-stack developer and AI/ML engineer in Kathmandu, Nepal.
-        I ship end-to-end products: from RAG pipelines and course platforms to the Docker
-        images, CI/CD, and cloud infra that keep them live.
+        Based in Kathmandu, Nepal. I've built a course platform with payments and video DRM,
+        a RAG pipeline from raw PDF to answer, and a three-role marketplace. I containerized,
+        deployed, and debugged all of them in production myself.
       </p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="#work">See the work →</a>
@@ -349,7 +338,7 @@
       <div class="ticker-wrap" aria-hidden="true">
         <div class="ticker-head">
           <span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span>
-          deploy_log.sh — recent
+          deploy_log.sh (recent)
         </div>
         <div class="ticker-viewport">
           <div class="ticker-track">
@@ -357,10 +346,10 @@
             <span class="ok">✓ deployed to gcp cloud run</span>
             <span>⟳ rotated exposed credentials after ci leak</span>
             <span class="ok">✓ fixed stripe checkout hang (fire-and-forget email)</span>
-            <span class="ok">✓ resolved cross-site cookie failure — sameSite:none</span>
+            <span class="ok">✓ resolved cross-site cookie failure (sameSite:none)</span>
             <span class="ok">✓ shipped rag pipeline: pymupdf → faiss → mistral</span>
             <span class="ok">✓ dockerized docmind, pushed to docker hub</span>
-            <span class="ok">✓ github actions keep-alive cron — render free tier</span>
+            <span class="ok">✓ github actions keep-alive cron (render free tier)</span>
             <span class="ok">✓ dockerized lms-backend</span>
             <span class="ok">✓ deployed to gcp cloud run</span>
             <span>⟳ rotated exposed credentials after ci leak</span>
@@ -374,18 +363,19 @@
   <section id="about">
     <div class="wrap about-grid reveal">
       <div>
-        <span class="section-tag">// about</span>
-        <h2 style="margin-bottom:20px;">Full-stack, with a DevOps habit and an AI/ML focus.</h2>
+        <span class="section-tag">About</span>
+        <h2 style="margin-bottom:20px;">What I actually do day to day.</h2>
         <p>
           I'm an Information Management graduate (Shanker Dev Campus, Tribhuvan University),
           currently a mentee in the Dev Weekends Fellowship and actively applying for AI/ML
-          engineering roles. I like taking projects past the "it works on my machine" stage —
-          containerizing them, wiring up CI/CD, and fixing whatever breaks once real traffic hits.
+          engineering roles. I like taking projects past the "it works on my machine" stage.
+          That means containerizing them, wiring up CI/CD, and fixing whatever breaks once real
+          traffic hits.
         </p>
         <p>
           Recent work spans a full-stack LMS with video DRM and payments, a RAG-based PDF
           chatbot built without framework abstractions to actually understand the fundamentals,
-          and a multi-vendor e-commerce platform — plus an AI internship and a stint building a
+          and a multi-vendor e-commerce platform, plus an AI internship and a stint building a
           custom Drupal module suite in production.
         </p>
       </div>
@@ -400,13 +390,13 @@
         <div class="stack-group">
           <h3>Backend</h3>
           <div class="chips">
-            <span class="chip">Node.js / Express</span><span class="chip">TypeScript</span>
+            <span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">TypeScript</span>
             <span class="chip">FastAPI</span><span class="chip">MongoDB</span>
             <span class="chip">Redis</span><span class="chip">Socket.IO</span>
           </div>
         </div>
         <div class="stack-group">
-          <h3>AI / ML</h3>
+          <h3>AI/ML</h3>
           <div class="chips">
             <span class="chip">FAISS</span><span class="chip">HuggingFace</span>
             <span class="chip">Mistral LLM</span><span class="chip">Scikit-learn</span>
@@ -416,7 +406,7 @@
           <h3>DevOps</h3>
           <div class="chips">
             <span class="chip">Docker</span><span class="chip">GitHub Actions</span>
-            <span class="chip">GCP Cloud Run</span><span class="chip">Vercel / Render</span>
+            <span class="chip">GCP Cloud Run</span><span class="chip">Vercel</span><span class="chip">Render</span>
           </div>
         </div>
       </div>
@@ -426,8 +416,8 @@
   <section id="work">
     <div class="wrap">
       <div class="section-head reveal">
-        <span class="section-tag">// selected work</span>
-        <h2>Projects I've taken from idea to production.</h2>
+        <span class="section-tag">Work</span>
+        <h2>Projects</h2>
       </div>
 
       <article class="project reveal">
@@ -438,35 +428,36 @@
           <span class="status-tag status-live">live</span>
         </div>
         <p class="project-desc">
-          A full-stack learning-management platform built as a graded Dev Weekends deliverable —
-          <strong>course CRUD, DRM-protected video, Stripe payments, and an admin dashboard</strong>,
-          all covered against the full rubric. I took it further with a DevOps pass: containerized
-          the backend, built a GitHub Actions CI/CD pipeline, and deployed it to GCP Cloud Run.
-          Along the way I fixed a Stripe checkout hang, cross-site cookie failures, and a logout
-          race condition caused by stale RTK Query cache state.
+          A full-stack learning management system where admins publish video courses and students
+          browse, purchase, and learn, with <strong>Q&amp;A threads, reviews, real-time
+          notifications, and an analytics dashboard</strong>. Built as a Dev Weekends Fellowship
+          project. I containerized the backend, built a GitHub Actions CI/CD pipeline, and fixed a
+          handful of production issues along the way: a Stripe checkout hang, cross-site cookie
+          failures, and a logout race condition from stale RTK Query cache state.
         </p>
         <div class="project-stack chips">
-          <span class="chip">Next.js 14</span><span class="chip">Express / TS</span>
+          <span class="chip">Next.js 14</span><span class="chip">Express</span>
+          <span class="chip">TypeScript</span>
           <span class="chip">MongoDB</span><span class="chip">Stripe</span>
-          <span class="chip">VdoCipher</span><span class="chip">Docker</span>
-          <span class="chip">GCP Cloud Run</span>
+          <span class="chip">VdoCipher</span><span class="chip">Socket.IO</span>
+          <span class="chip">Docker</span>
         </div>
         <div class="project-links">
-          <a href="https://lms-server-drkkwnviwa-el.a.run.app" target="_blank" rel="noopener">Live demo ↗</a>
-          <span class="disabled" title="Repo is private after a credential rotation">Source (private repo)</span>
+          <a href="https://lms-platform-two-psi.vercel.app" target="_blank" rel="noopener">Live app ↗</a>
+          <a href="https://lms-platform-weuz.onrender.com" target="_blank" rel="noopener">API ↗</a>
         </div>
       </article>
 
       <article class="project reveal">
         <div class="project-top">
           <div>
-            <h3 class="project-title">DocMind — RAG PDF Chatbot</h3>
+            <h3 class="project-title">DocMind: RAG PDF Chatbot</h3>
           </div>
           <span class="status-tag status-live">live</span>
         </div>
         <p class="project-desc">
           A retrieval-augmented chatbot for querying PDFs, built from scratch as a deep-learning
-          exercise — <strong>deliberately avoiding LangChain abstractions</strong> to actually
+          exercise. I <strong>deliberately avoided LangChain abstractions</strong> to actually
           understand how retrieval pipelines work. Text is extracted with PyMuPDF, embedded with
           a HuggingFace sentence-transformer (MiniLM), indexed in FAISS, and served through
           FastAPI with a Mistral LLM for generation. Dockerized and deployed to HuggingFace Spaces.
@@ -485,24 +476,32 @@
       <article class="project reveal">
         <div class="project-top">
           <div>
-            <h3 class="project-title">ShopO — Multi-Vendor MERN Marketplace</h3>
+            <h3 class="project-title">ShopO: Multivendor MERN Marketplace</h3>
           </div>
-          <span class="status-tag status-shipped">shipped</span>
+          <span class="status-tag status-live">live</span>
         </div>
         <p class="project-desc">
-          A multi-vendor e-commerce platform built as a Dev Weekends deliverable on the MERN
-          stack. Most of the real engineering was in the debugging: <strong>Mongoose 9 breaking
-          changes, a MUI v4→v5 migration, async race conditions, and CORS/Socket.IO
-          configuration</strong> across separate vendor and buyer flows, deployed on Render.
+          A multivendor e-commerce marketplace supporting three roles (buyers, sellers, and
+          admins) with <strong>product and event listings, discount coupons, real-time chat,
+          order lifecycle management, refunds, and Stripe/PayPal payments</strong>. The harder
+          part was the debugging: Mongoose 9 breaking changes, a MUI v4→v5 migration, async race
+          conditions, and CORS/Socket.IO configuration across three separate services.
         </p>
         <div class="project-stack chips">
           <span class="chip">MongoDB</span><span class="chip">Express</span>
           <span class="chip">React</span><span class="chip">Node.js</span>
-          <span class="chip">Socket.IO</span><span class="chip">Render</span>
+          <span class="chip">Socket.IO</span><span class="chip">Stripe</span>
+          <span class="chip">PayPal</span>
         </div>
         <div class="project-links">
-          <a href="https://github.com/bikeeprajapati/multivendor-mern" target="_blank" rel="noopener">Source ↗</a>
+          <a href="https://multivendor-mern-ashy.vercel.app" target="_blank" rel="noopener">Frontend ↗</a>
+          <a href="https://multivendor-backend-219u.onrender.com" target="_blank" rel="noopener">Backend API ↗</a>
+          <a href="https://multivendor-socket-61tp.onrender.com" target="_blank" rel="noopener">Socket server ↗</a>
         </div>
+        <p style="font-family:'IBM Plex Mono', monospace; font-size:0.76rem; color:var(--text-muted); margin:2px 0 0;">
+          Backend and socket server run on Render's free tier and spin down after 15 minutes idle.
+          First request after a while can take 30 to 60 seconds to wake up.
+        </p>
       </article>
 
       <article class="project reveal">
@@ -524,7 +523,7 @@
           <span class="chip">Docker</span>
         </div>
         <div class="project-links">
-          <span class="disabled" title="Repo link available on request">Source available on request</span>
+          <a href="https://github.com/bikeeprajapati/readme-generator" target="_blank" rel="noopener">Source ↗</a>
         </div>
       </article>
 
@@ -534,13 +533,13 @@
   <section id="resume">
     <div class="wrap">
       <div class="section-head">
-        <span class="section-tag">// résumé</span>
-        <h2>Grab the one-pager.</h2>
+        <span class="section-tag">Résumé</span>
+        <h2>Résumé</h2>
       </div>
       <div class="resume-card reveal">
         <div>
-          <h3>Bikee Prajapati — Résumé (PDF)</h3>
-          <p>AI/ML-focused CV — background, projects, and internships in one page.</p>
+          <h3>Bikee Prajapati's Résumé (PDF)</h3>
+          <p>AI/ML-focused CV covering background, projects, and internships in one page.</p>
         </div>
         <!-- TODO(bikee): replace resume.pdf with your actual file, same folder as index.html -->
         <a class="btn btn-primary" href="resume.pdf" download>Download PDF ↓</a>
@@ -552,8 +551,8 @@
     <div class="wrap">
       <div class="contact-row reveal">
         <div>
-          <span class="section-tag">// contact</span>
-          <h2>Building something? Let's talk.</h2>
+          <span class="section-tag">Contact</span>
+          <h2>Contact</h2>
         </div>
         <div class="contact-links">
           <a href="mailto:workwithbikee@gmail.com">workwithbikee@gmail.com</a>
