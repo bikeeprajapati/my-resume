@@ -103,6 +103,7 @@
   }
 
   function respondTo(userText) {
+    hideSuggestions();
     addMessage(userText.replace(/</g, '&lt;'), 'user');
     input.value = '';
     const typingEl = showTyping();
@@ -116,6 +117,7 @@
 
   function renderSuggestions() {
     suggestionsEl.innerHTML = '';
+    suggestionsEl.hidden = false;
     SUGGESTIONS.forEach(text => {
       const chip = document.createElement('button');
       chip.type = 'button';
@@ -124,6 +126,11 @@
       chip.addEventListener('click', () => respondTo(text));
       suggestionsEl.appendChild(chip);
     });
+  }
+
+  function hideSuggestions() {
+    suggestionsEl.hidden = true;
+    suggestionsEl.innerHTML = '';
   }
 
   let initialized = false;
